@@ -42,6 +42,7 @@ Elaborate use stories.
 > ### Play a game
 > 
 > Player plays a game.
+> Possible ways to display a game would be using HTML Canvas.
 > 
 > **Precondition**: none
 > 
