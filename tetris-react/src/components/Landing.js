@@ -1,5 +1,5 @@
 //import react from 'react';
-import { CanvasHTMLAttributes } from 'react';
+//import { CanvasHTMLAttributes } from 'react';
 //Components
 import Stage from './Stage';
 import Display from './Display';
