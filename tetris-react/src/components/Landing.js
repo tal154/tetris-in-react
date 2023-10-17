@@ -39,7 +39,7 @@ const Landing = () => {
                     <button id="reset">Reset</button>
                 </div>
                 <canvas id="tetris" width="240" height="400" />
-                <script src="tetris.js"></script>
+                <script src="Tetris.js"></script>
             </div>
         </>
     );
