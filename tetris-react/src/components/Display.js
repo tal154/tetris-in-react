@@ -1,7 +1,7 @@
 import react from 'react';
 
 const Display = ({ gameOver, text}) => (
-    <div>{text}</div>
+    <p>{text}</p>
 )
 
 export default Display;
