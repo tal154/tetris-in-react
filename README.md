@@ -1,10 +1,11 @@
 # tetris-in-react using vite and typescript
 
-# run 
+# setup 
 > npm install vite
 >
 to install vite
 
+# run
 in terminal execute
 > vite
 > 
