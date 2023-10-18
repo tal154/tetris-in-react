@@ -33,7 +33,7 @@ const App: React.FC = () => {
     }
   };
 
-  const keyUp =({ keyCode }: { keyCode: number, repeat: boolean}): void => {
+  const keyUp =({ keyCode }: { keyCode: number }): void => {
     if (!gameOver){
     // change dropspeed when down arrow is released
     if(keyCode === 40) {
