@@ -16,7 +16,6 @@ export const isColliding = (
   stage: STAGE,
   { x: moveX, y: moveY }: { x: number, y: number }
 ) => {
-   // Using for loops to be able to return (and break). Not possible with forEach
   for (let y = 0; y < player.tetromino.length; y += 1) {
     for (let x = 0; x < player.tetromino[y].length; x += 1) {
       // check that we're on an actual tetromino cell

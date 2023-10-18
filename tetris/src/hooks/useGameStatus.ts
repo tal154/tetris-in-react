@@ -8,8 +8,8 @@ export const useGameStatus = (rowsCleared: number) => {
 
     useEffect(() => {
         if(rowsCleared > 0) {
-            setScore(prev => prev + ROWPOINTS[rowsCleared/2] * level);
-            setRows(prev => prev + rowsCleared/2);
+            setScore(prev => prev + ROWPOINTS[rowsCleared / 2] * level);
+            setRows(prev => prev + rowsCleared / 2);
         }
     }, [rowsCleared])
 
