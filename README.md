@@ -1,4 +1,13 @@
-# tetris-in-react
+# tetris-in-react using vite and typescript
+
+# run 
+> npm install vite
+>
+to install vite
+
+in terminal execute
+> vite
+to start vite+react front end
 
 ## 1. Problem Statement
 
