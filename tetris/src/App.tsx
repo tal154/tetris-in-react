@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { createStage, isColliding } from './gameHelpers';
+import { DROPSPEED } from './setup';
 
 // Components
 import Stage from './components/Stage/Stage';
@@ -11,8 +12,6 @@ import { useInterval } from './hooks/useInterval';
 import { usePlayer } from './hooks/usePlayer';
 import { useStage } from './hooks/useStage';
 import { useGameStatus } from './hooks/useGameStatus';
-
-import { DROPSPEED } from './setup';
 
 // Styles
 import { StyledTetrisWrapper, StyledTetris } from './App.styles';
@@ -29,7 +28,7 @@ const App: React.FC = () => {
 
   const movePlayer = (dir: number) => {
     if(!isColliding(player, stage, {x: dir, y: 0})) {
-      updatePlayerPos({ x: dir/2, y: 0, collided: false });
+      updatePlayerPos({ x: dir / 2, y: 0, collided: false });
     }
   };
 
@@ -41,19 +40,6 @@ const App: React.FC = () => {
     }
   }
   };
-
-  const handleStartGame = (): void => {
-    // need to focus window with key events on start
-    if(gameArea.current) gameArea.current.focus();
-    // reset everything
-    setStage(createStage());
-    setDropTime(DROPSPEED);
-    resetPlayer();
-    setScore(0);
-    setLevel(1);
-    setRows(0);
-    setGameOver(false);
-  }
 
   const move = ({ keyCode, repeat }: { keyCode: number; repeat: boolean }): void => {
     if (!gameOver) {
@@ -93,6 +79,20 @@ const App: React.FC = () => {
     }
     
   }
+
+  const handleStartGame = (): void => {
+    // need to focus window with key events on start
+    if(gameArea.current) gameArea.current.focus();
+    // reset everything
+    setStage(createStage());
+    setDropTime(DROPSPEED);
+    resetPlayer();
+    setScore(0);
+    setLevel(1);
+    setRows(0);
+    setGameOver(false);
+  }
+
 
   useInterval(() => {
     drop();
