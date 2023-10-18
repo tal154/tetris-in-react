@@ -10,6 +10,7 @@ import StartButton from './components/StartButton/StartButton';
 import { useInterval } from './hooks/useInterval';
 import { usePlayer } from './hooks/usePlayer';
 import { useStage } from './hooks/useStage';
+import { useGameStatus } from './hooks/useGameStatus';
 
 import { DROPSPEED } from './setup';
 
@@ -23,7 +24,8 @@ const App: React.FC = () => {
   const gameArea = useRef<HTMLDivElement>(null);
 
   const { player, updatePlayerPos, resetPlayer, playerRotate } = usePlayer();
-  const { stage, setStage } = useStage(player, resetPlayer);
+  const { stage, setStage, rowsCleared } = useStage(player, resetPlayer);
+  const { score, setScore, rows, setRows, level, setLevel } = useGameStatus(rowsCleared);
 
   const movePlayer = (dir: number) => {
     if(!isColliding(player, stage, {x: dir, y: 0})) {
@@ -32,10 +34,12 @@ const App: React.FC = () => {
   };
 
   const keyUp =({ keyCode }: { keyCode: number, repeat: boolean}): void => {
+    if (!gameOver){
     // change dropspeed when down arrow is released
     if(keyCode === 40) {
-      setDropTime(DROPSPEED)
+      setDropTime(DROPSPEED / level + 200)
     }
+  }
   };
 
   const handleStartGame = (): void => {
@@ -45,6 +49,9 @@ const App: React.FC = () => {
     setStage(createStage());
     setDropTime(DROPSPEED);
     resetPlayer();
+    setScore(0);
+    setLevel(1);
+    setRows(0);
     setGameOver(false);
   }
 
@@ -65,6 +72,14 @@ const App: React.FC = () => {
   };
 
   const drop = (): void => {
+    // increase level every 10 rows
+    if(rows > level * 10) {
+      setLevel(prev => prev + 1);
+      // incrase gravity
+      setDropTime(DROPSPEED / level + 200)
+    }
+
+
     if(!isColliding(player, stage, {x: 0, y: 1})) {
       updatePlayerPos({ x: 0, y: .5, collided: false})
     } else {
@@ -94,9 +109,9 @@ const App: React.FC = () => {
             </>
           ) : (
             <>
-              <Display text={`Score: `} />
-              <Display text={`Rows: `} />
-              <Display text={`Level: `} />
+              <Display text={`Score: ${score} `} />
+              <Display text={`Rows: ${rows}`} />
+              <Display text={`Level: ${level}`} />
             </>
           )
           }
