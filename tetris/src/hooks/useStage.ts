@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { createStage } from '../gameHelpers';
+
 // types
 import { PLAYER } from './usePlayer';
 
@@ -31,7 +32,6 @@ export const useStage = (player: PLAYER, resetPlayer: () => void) => {
       }, [] as STAGE);
     };
 
-
     const updateStage = (prevStage: STAGE): STAGE => {
       // flush the stage
       // if "clear" but don't have a 0 it means that it's the players move and should be cleared
@@ -43,7 +43,9 @@ export const useStage = (player: PLAYER, resetPlayer: () => void) => {
       player.tetromino.forEach((row, y) => {
         row.forEach((value, x) => {
           if (value !== 0) {
-            newStage[y + player.pos.y][x + player.pos.x] = [value, `${player.collided ? 'merged' : 'clear'}`];
+            if(newStage[y + player.pos.y]) {
+              newStage[y + player.pos.y][x + player.pos.x] = [value, `${player.collided ? 'merged' : 'clear'}`];
+            }            
           }
         });
       });

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledTetrisWrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 95vh;
   overflow: hidden;
   outline: none;
 `;
