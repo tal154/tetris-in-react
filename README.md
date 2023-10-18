@@ -7,6 +7,7 @@ to install vite
 
 in terminal execute
 > vite
+> 
 to start vite+react front end
 
 ## 1. Problem Statement
