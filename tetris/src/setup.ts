@@ -1,6 +1,6 @@
 export const STAGE_WIDTH = 12;
 export const STAGE_HEIGHT = 20;
-export const ROWPOINTS = [40, 100, 300, 1200];
+export const ROWPOINTS = [0, 40, 100, 300, 1200];
 export const DROPSPEED = 1000;
 
 export const TETROMINOS = {
@@ -49,9 +49,9 @@ export const TETROMINOS = {
   },
   T: {
     shape: [
-      [0, 0, 0],
+      [0, 'T', 0],
       ['T', 'T', 'T'],
-      [0, 'T', 0]
+      [0, 0, 0]
     ],
     color: '128, 0, 128'
   },
