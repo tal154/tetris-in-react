@@ -34,7 +34,7 @@ const TetrisPage: React.FC = () => {
 
   const keyUp =({ keyCode }: { keyCode: number }): void => {
     if (!gameOver){
-    // change dropspeed when down arrow is released
+    // change gravity when down arrow is released
     if(keyCode === 40) {
       setDropTime(DROPSPEED / level + 200)
     }
@@ -75,8 +75,7 @@ const TetrisPage: React.FC = () => {
         setDropTime(null);
       }
       updatePlayerPos({x: 0, y:0, collided: true});
-    }
-    
+    }    
   }
 
   const handleStartGame = (): void => {
