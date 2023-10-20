@@ -13,7 +13,7 @@ public class ScoreService {
 
     public List<Score> findAll(){return repository.findAll();}
 
-    public Score findById(int forumId){return repository.findByUserId(forumId);}
+    public Score findByUserId(int userId){return repository.findByUserId(userId);}
 
     public Result<Score> add(Score score){
         Result<Score> result = validate(score);
@@ -22,7 +22,7 @@ public class ScoreService {
         }
 
         if(score.getScoreId() != 0){
-            result.addMessage("forumId cannot be set for `add` operation", ResultType.INVALID);
+            result.addMessage("scoreId cannot be set for `add` operation", ResultType.INVALID);
             return result;
         }
 
@@ -31,26 +31,26 @@ public class ScoreService {
         return result;
     }
 
-    public Result<Score> update(Score score){
-        Result<Score> result = validate(score);
-        if(!result.isSuccess()){
-            return result;
-        }
-
-        if(score.getScoreId() <= 0){
-            result.addMessage("forumId must be set for `update` operation", ResultType.INVALID);
-            return result;
-        }
-
-        if(!repository.update(score)){
-            String msg = String.format("forumId: %s, not found", score.getScoreId());
-            result.addMessage(msg, ResultType.NOT_FOUND);
-        }
-
-        return result;
-    }
-
-    public boolean deleteById(int forumId){return repository.deleteById(forumId);}
+//    public Result<Score> update(Score score){
+//        Result<Score> result = validate(score);
+//        if(!result.isSuccess()){
+//            return result;
+//        }
+//
+//        if(score.getScoreId() <= 0){
+//            result.addMessage("forumId must be set for `update` operation", ResultType.INVALID);
+//            return result;
+//        }
+//
+//        if(!repository.update(score)){
+//            String msg = String.format("forumId: %s, not found", score.getScoreId());
+//            result.addMessage(msg, ResultType.NOT_FOUND);
+//        }
+//
+//        return result;
+//    }
+//
+//    public boolean deleteById(int forumId){return repository.deleteById(forumId);}
 
     private Result<Score> validate(Score score){
         Result<Score> result = new Result<>();
@@ -76,6 +76,4 @@ public class ScoreService {
 
         return result;
     }
-
-
 }

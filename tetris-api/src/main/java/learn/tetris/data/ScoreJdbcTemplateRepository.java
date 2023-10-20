@@ -32,7 +32,6 @@ public class ScoreJdbcTemplateRepository implements ScoreRepository {
         final String sql = """
                            select score_id, user_id, score
                             from score
-                            order by score desc
                             where user_id = ?;
                             """;
         return jdbcTemplate.query(sql, new ScoreMapper(), scoreId).stream()

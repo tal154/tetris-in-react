@@ -21,15 +21,12 @@ public class Score {
     public int getScoreId() {
         return scoreId;
     }
-
     public void setScoreId(int scoreId) {
         this.scoreId = scoreId;
     }
-
     public int getUserId() {
         return userId;
     }
-
     public void setUserId(int userId) {
         this.userId = userId;
     }

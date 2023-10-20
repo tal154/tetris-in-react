@@ -22,8 +22,8 @@ public class ScoreController {
         return service.findAll();
     }
 
-    @GetMapping("/{forumId}")
-    public Score findById(@PathVariable int forumId){return service.findById(forumId);}
+    @GetMapping("/{userId}")
+    public Score findById(@PathVariable int userId){return service.findByUserId(userId);}
 
     @PostMapping
     public ResponseEntity<Object> add(@RequestBody Score score){
@@ -34,24 +34,24 @@ public class ScoreController {
         return ErrorResponse.build(result);
     }
 
-    @PutMapping("/{forumId}")
-    public ResponseEntity<Object> update(@PathVariable int forumId, @RequestBody Score score){
-        if(forumId != score.getScoreId()){
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
-        }
-        Result<Score> result = service.update(score);
-        if(result.isSuccess()){
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-
-        return ErrorResponse.build(result);
-    }
-
-    @DeleteMapping("/{forumId}")
-    public ResponseEntity<Void> deleteById(@PathVariable int forumId){
-        if(service.deleteById(forumId)){
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
+//    @PutMapping("/{forumId}")
+//    public ResponseEntity<Object> update(@PathVariable int forumId, @RequestBody Score score){
+//        if(forumId != score.getScoreId()){
+//            return new ResponseEntity<>(HttpStatus.CONFLICT);
+//        }
+//        Result<Score> result = service.update(score);
+//        if(result.isSuccess()){
+//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//        }
+//
+//        return ErrorResponse.build(result);
+//    }
+//
+//    @DeleteMapping("/{forumId}")
+//    public ResponseEntity<Void> deleteById(@PathVariable int forumId){
+//        if(service.deleteById(forumId)){
+//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//        }
+//        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//    }
 }

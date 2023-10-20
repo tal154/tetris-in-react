@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,8 +36,7 @@ class ScoreJdbcTemplateRepositoryTest {
     void shouldFindById(){
         Score actual = repository.findByUserId(1);
         assertNotNull(actual);
-        assertEquals("user 1", actual.getUserId());
-        assertEquals("post 1", actual.getScore());
+        assertEquals(100, actual.getScore());
     }
 
     @Test
@@ -49,33 +47,31 @@ class ScoreJdbcTemplateRepositoryTest {
 
     @Test
     void shouldAdd(){
-        Score arg = makeForum();
+        Score arg = makeScore();
         Score actual = repository.add(arg);
         assertNotNull(actual);
         assertEquals(NEXT_ID, actual.getScoreId());
     }
 
-    @Test
-    void shouldUpdate(){
-        Score score = makeForum();
-        score.setScoreId(1);
-        assertTrue(repository.update(score));
-        score.setScoreId(MISSING_ID);
-        assertFalse(repository.update(score));
-    }
+//    @Test
+//    void shouldUpdate(){
+//        Score score = makeForum();
+//        score.setScoreId(1);
+//        assertTrue(repository.update(score));
+//        score.setScoreId(MISSING_ID);
+//        assertFalse(repository.update(score));
+//    }
+//
+//    @Test
+//    void shouldDelete(){
+//        assertTrue(repository.deleteById(2));
+//        assertFalse(repository.deleteById(MISSING_ID));
+//    }
 
-    @Test
-    void shouldDelete(){
-        assertTrue(repository.deleteById(2));
-        assertFalse(repository.deleteById(MISSING_ID));
-    }
-
-    Score makeForum(){
+    Score makeScore(){
         Score score = new Score();
-        score.setUserId("name99");
-        score.setScore("title99");
-        score.setPostContent("post-content-99");
-        score.setPostDate(LocalDate.now());
+        score.setUserId(1);
+        score.setScore(100);
 
         return score;
     }

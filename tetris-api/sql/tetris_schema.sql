@@ -2,6 +2,11 @@ drop database if exists tetris;
 create database tetris;
 use tetris;
 
+create table user_role (
+	user_role_id int primary key auto_increment,
+    user_role varchar(50) not null
+);
+
 create table `user` (
 	user_id int primary key auto_increment,
     username varchar(50) not null,
@@ -10,11 +15,6 @@ create table `user` (
     constraint fk_user_role_id
         foreign key (user_role_id)
         references user_role(user_role_id)
-);
-
-create table user_role (
-	user_role_id int primary key auto_increment,
-    user_role varchar(50) not null
 );
 
 create table score (
