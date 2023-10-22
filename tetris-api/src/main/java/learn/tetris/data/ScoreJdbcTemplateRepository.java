@@ -19,8 +19,9 @@ public class ScoreJdbcTemplateRepository implements ScoreRepository {
     @Override
     public List<Score> findAll() {
         final String sql = """
-                            select score_id, user_id, score
-                            from score
+                            select s.score_id, s.user_id, s.score, u.username
+                            from score s
+                            inner join `user` u on s.user_id = u.user_id
                             order by score desc
                             limit 10;
                             """;

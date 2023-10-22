@@ -7,15 +7,17 @@ public class Score {
     private int scoreId;
     private int userId;
     private int score;
+    private String username;
     private String postContent;
     private LocalDate postDate;
 
     public Score(){}
 
-    public Score(int scoreId, int userId, int score) {
+    public Score(int scoreId, int userId, int score, String username) {
         this.scoreId = scoreId;
         this.userId = userId;
         this.score = score;
+        this.username = username;
     }
 
     public int getScoreId() {
@@ -37,6 +39,13 @@ public class Score {
 
     public void setScore(int score) {
         this.score = score;
+    }
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
 

@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import TetrisPage from './views/TetrisPage';
 import Nav from './components/Nav/Nav';
-import ScoresPage from './views/ScoresPage';
+import ScoresPage from './views/scores/ScoresPage';
 
 function App() {
   return (
