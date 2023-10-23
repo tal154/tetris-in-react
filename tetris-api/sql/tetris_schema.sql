@@ -57,3 +57,4 @@ insert into `user` (username, user_pass, user_role_id) values
         (8, 300),
         (8, 900),
         (2, 200);
+        
