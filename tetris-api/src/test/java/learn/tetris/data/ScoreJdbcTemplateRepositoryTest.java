@@ -23,7 +23,7 @@ class ScoreJdbcTemplateRepositoryTest {
     KnownGoodState knownGoodState;
 
     @BeforeEach
-    void setUp(){knownGoodState.set();}
+    void setUp(){ knownGoodState.set(); }
 
     @Test
     void shouldFindAll(){
@@ -53,20 +53,20 @@ class ScoreJdbcTemplateRepositoryTest {
         assertEquals(NEXT_ID, actual.getScoreId());
     }
 
-//    @Test
-//    void shouldUpdate(){
-//        Score score = makeForum();
-//        score.setScoreId(1);
-//        assertTrue(repository.update(score));
-//        score.setScoreId(MISSING_ID);
-//        assertFalse(repository.update(score));
-//    }
-//
-//    @Test
-//    void shouldDelete(){
-//        assertTrue(repository.deleteById(2));
-//        assertFalse(repository.deleteById(MISSING_ID));
-//    }
+    @Test
+    void shouldUpdate(){
+        Score score = makeScore();
+        score.setScoreId(1);
+        assertTrue(repository.update(score));
+        score.setScoreId(MISSING_ID);
+        assertFalse(repository.update(score));
+    }
+
+    @Test
+    void shouldDelete(){
+        assertTrue(repository.deleteById(2));
+        assertFalse(repository.deleteById(MISSING_ID));
+    }
 
     Score makeScore(){
         Score score = new Score();

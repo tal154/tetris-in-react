@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { StyledScoreboard } from "../../App.styles";
+import { StyledScoreboard } from "../App.styles";
 // import toast from "react-hot-toast";
 
 type scoresProps = {

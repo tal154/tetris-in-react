@@ -34,24 +34,24 @@ public class ScoreController {
         return ErrorResponse.build(result);
     }
 
-//    @PutMapping("/{forumId}")
-//    public ResponseEntity<Object> update(@PathVariable int forumId, @RequestBody Score score){
-//        if(forumId != score.getScoreId()){
-//            return new ResponseEntity<>(HttpStatus.CONFLICT);
-//        }
-//        Result<Score> result = service.update(score);
-//        if(result.isSuccess()){
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        }
-//
-//        return ErrorResponse.build(result);
-//    }
-//
-//    @DeleteMapping("/{forumId}")
-//    public ResponseEntity<Void> deleteById(@PathVariable int forumId){
-//        if(service.deleteById(forumId)){
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        }
-//        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//    }
+    @PutMapping("/{scoreId}")
+    public ResponseEntity<Object> update(@PathVariable int scoreId, @RequestBody Score score){
+        if(scoreId != score.getScoreId()){
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+        Result<Score> result = service.update(score);
+        if(result.isSuccess()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+
+        return ErrorResponse.build(result);
+    }
+
+    @DeleteMapping("/{forumId}")
+    public ResponseEntity<Void> deleteById(@PathVariable int forumId){
+        if(service.deleteById(forumId)){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 }

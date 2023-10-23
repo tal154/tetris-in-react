@@ -31,9 +31,10 @@ public class ScoreJdbcTemplateRepository implements ScoreRepository {
     @Override
     public Score findByUserId(int scoreId) {
         final String sql = """
-                           select score_id, user_id, score
-                            from score
-                            where user_id = ?;
+                           select s.score_id, s.user_id, s.score, u.username
+                            from score s
+                            inner join `user` u on s.user_id = u.user_id
+                            where s.user_id = ?;
                             """;
         return jdbcTemplate.query(sql, new ScoreMapper(), scoreId).stream()
                 .findFirst().orElse(null);
@@ -61,21 +62,20 @@ public class ScoreJdbcTemplateRepository implements ScoreRepository {
         return score;
     }
 
-//    @Override
-//    public boolean update(Score score) {
-//        final String sql = """
-//                            update score set
-//                            title = ?,
-//                            post_content = ?
-//                            where forum_id = ?;
-//                            """;
-//        return jdbcTemplate.update(sql,
-//                score.getScore(),
-//                score.getScoreId()) > 0;
-//    }
+    @Override
+    public boolean update(Score score) {
+        final String sql = """
+                            update score set
+                            score = ?
+                            where score_id = ?;
+                            """;
+        return jdbcTemplate.update(sql,
+                score.getScore(),
+                score.getScoreId()) > 0;
+    }
 
-//    @Override
-//    public boolean deleteById(int forumId) {
-//        return jdbcTemplate.update("delete from score where forum_id = ?;", forumId) > 0;
-//    }
+    @Override
+    public boolean deleteById(int scoreId) {
+        return jdbcTemplate.update("delete from score where score_id = ?;", scoreId) > 0;
+    }
 }

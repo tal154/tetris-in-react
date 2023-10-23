@@ -31,40 +31,40 @@ public class ScoreService {
         return result;
     }
 
-//    public Result<Score> update(Score score){
-//        Result<Score> result = validate(score);
-//        if(!result.isSuccess()){
-//            return result;
-//        }
-//
-//        if(score.getScoreId() <= 0){
-//            result.addMessage("forumId must be set for `update` operation", ResultType.INVALID);
-//            return result;
-//        }
-//
-//        if(!repository.update(score)){
-//            String msg = String.format("forumId: %s, not found", score.getScoreId());
-//            result.addMessage(msg, ResultType.NOT_FOUND);
-//        }
-//
-//        return result;
-//    }
-//
-//    public boolean deleteById(int forumId){return repository.deleteById(forumId);}
+    public Result<Score> update(Score score){
+        Result<Score> result = validate(score);
+        if(!result.isSuccess()){
+            return result;
+        }
+
+        if(score.getScoreId() <= 0){
+            result.addMessage("forumId must be set for `update` operation", ResultType.INVALID);
+            return result;
+        }
+
+        if(!repository.update(score)){
+            String msg = String.format("forumId: %s, not found", score.getScoreId());
+            result.addMessage(msg, ResultType.NOT_FOUND);
+        }
+
+        return result;
+    }
+
+    public boolean deleteById(int scoreId){return repository.deleteById(scoreId);}
 
     private Result<Score> validate(Score score){
         Result<Score> result = new Result<>();
         if(score == null){
-            result.addMessage("from cannot be null", ResultType.INVALID);
+            result.addMessage("Score cannot be null", ResultType.INVALID);
             return result;
         }
 
         if(Validations.isNullOrBlank(score.getUserId())){
-            result.addMessage("forumName(username) is required.", ResultType.INVALID);
+            result.addMessage("Score userId is required.", ResultType.INVALID);
         }
 
         if(Validations.isNullOrBlank(score.getScore())){
-            result.addMessage("title is required.", ResultType.INVALID);
+            result.addMessage("Score is required.", ResultType.INVALID);
         }
 
         /**

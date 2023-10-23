@@ -42,65 +42,59 @@ class ScoreServiceTest {
         assertEquals(ResultType.INVALID, result.getType());
     }
 
-//    @Test
-//    void shouldUpdate(){
-//        Score score = makeForum();
-//        score.setScoreId(1);
-//
-//        when(repository.update(score)).thenReturn(true);
-//
-//        Result<Score> actual = service.update(score);
-//        assertEquals(ResultType.SUCCESS, actual.getType());
-//
-//    }
-//
-//    @Test
-//    void shouldNotUpdateNullOrBlankForumName(){
-//        Score score = makeForum();
-//        score.setScoreId(1);
-//        score.setUserId(null);
-//        Result<Score> result = service.update(score);
-//        assertEquals(ResultType.INVALID, result.getType());
-//
-//        score.setUserId(" ");
-//        result = service.update(score);
-//        assertEquals(ResultType.INVALID, result.getType());
-//    }
-//
-//    @Test
-//    void shouldNotUpdateNullOrBlankTitle(){
-//        Score score = makeForum();
-//        score.setScoreId(1);
-//        score.setScore(null);
-//        Result<Score> result = service.update(score);
-//        assertEquals(ResultType.INVALID, result.getType());
-//
-//        score.setScore(" ");
-//        result = service.update(score);
-//        assertEquals(ResultType.INVALID, result.getType());
-//    }
-//
-//    @Test
-//    void shouldNotUpdateNullOrBlankPostContent(){
-//        Score score = makeForum();
-//        score.setScoreId(1);
-//        score.setPostContent(null);
-//        Result<Score> result = service.update(score);
-//        assertEquals(ResultType.INVALID, result.getType());
-//
-//        score.setPostContent(" ");
-//        result = service.update(score);
-//        assertEquals(ResultType.INVALID, result.getType());
-//    }
-//
-//    @Test
-//    void shouldNotUpdateNullPostDate(){
-//        Score score = makeForum();
-//        score.setScoreId(1);
-//        score.setPostDate(null);
-//        Result<Score> result = service.update(score);
-//        assertEquals(ResultType.INVALID, result.getType());
-//    }
+    @Test
+    void shouldNotNullUser(){
+        Score score =  new Score();
+        score.setScore(100);
+        Result<Score> result = service.add(score);
+        assertEquals(ResultType.INVALID, result.getType());
+    }
+
+    @Test
+    void shouldAddNullScore() {
+        Score score =  new Score();
+        score.setUserId(10);
+        Result<Score> result = service.add(score);
+        assertEquals(ResultType.INVALID, result.getType());
+    }
+
+    @Test
+    void shouldUpdate(){
+        Score score = makeScore();
+        score.setScoreId(1);
+
+        when(repository.update(score)).thenReturn(true);
+
+        Result<Score> actual = service.update(score);
+        assertEquals(ResultType.SUCCESS, actual.getType());
+
+    }
+
+    @Test
+    void shouldNotUpdateZeroOrBlankUserId(){
+        Score score = new Score();
+        score.setScoreId(1);
+        Result<Score> result = service.update(score);
+        assertEquals(ResultType.INVALID, result.getType());
+
+        score.setUserId(0);
+        result = service.update(score);
+        assertEquals(ResultType.INVALID, result.getType());
+    }
+
+    @Test
+    void shouldNotUpdateZeroOrBlankScore(){
+        Score score = new Score();
+        score.setScoreId(1);
+        score.setUserId(1);
+
+        Result<Score> result = service.update(score);
+        assertEquals(ResultType.INVALID, result.getType());
+
+        score.setScore(0);
+        result = service.update(score);
+        assertEquals(ResultType.INVALID, result.getType());
+    }
 
     Score makeScore(){
         Score score = new Score();

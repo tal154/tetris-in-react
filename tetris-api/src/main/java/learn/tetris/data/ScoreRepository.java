@@ -12,8 +12,7 @@ public interface ScoreRepository {
 
     Score add(Score score);
 
-    //boolean update(Score score);
-
-    //boolean deleteById(int forumId);
+    boolean update(Score score);
+    boolean deleteById(int forumId);
 
 }

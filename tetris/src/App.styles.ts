@@ -7,31 +7,20 @@ export const StyledTetrisWrapper = styled.div`
   outline: none;
 `;
 
-export const StyledNav = styled.div`
-  width: 100%;
-  height: 50px;
-  background: cyan;
-  border-bottom: 1px solid black;
-  display: flex;
-  align-items: center;
-  font-family: "Press Start 2P", monospace;
-  justify-content: space-between;
-`;
-
 export const StyledScoreboard = styled.div`
 body {
   font-family: 'Press Start 2P', monospace;
   color: #fff;
   text-align: center;
   margin: 0;
-  padding: 0;
+  padding: 20px;
 }
 
 .arcade-table {
   font-family: 'Press Start 2P', monospace;
   border: 4px solid #fff;
   margin: 20px auto;
-  max-width: 400px;
+  max-width: 380px;
   padding: 20px;
   background-color: #000;
   border-radius: 15px;

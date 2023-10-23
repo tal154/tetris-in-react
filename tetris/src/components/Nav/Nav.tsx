@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { StyledNav } from "../../App.styles";
+import { StyledNav } from "./Nav.styles";
 import { Nav, Navbar } from 'react-bootstrap';
 
 

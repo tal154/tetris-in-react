@@ -9,8 +9,8 @@ create table user_role (
 
 create table `user` (
 	user_id int primary key auto_increment,
-    username varchar(50) not null,
-    user_pass varchar (50) not null,
+    username varchar(50) unique not null,
+    user_pass varchar (2048) not null,
     user_role_id int not null,
     constraint fk_user_role_id
         foreign key (user_role_id)
