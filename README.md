@@ -11,6 +11,46 @@ in terminal execute
 > 
 to start vite+react front end
 
+# Schedule:
+
+Create vite project, scafolding - 10 mins
+
+Create components - 30 mins
+
+Create styling - 30 mins
+
+Create board - 60 mins
+
+Create game logic - 1.5 hours
+
+Display single piece -  1 hour
+
+Collision detection - 30 mins
+
+Rotate piece - 45 mins
+
+Collision and rotation interaction - 1 hour
+
+Render multiple pieces - 30 mins
+
+Custom hooks - 30 mins
+
+Refactor for routes - 15 mins
+
+Create Nav component - 10 mins
+
+Nav component logic -  1 hour
+
+Scores view - 2 hours
+
+Backend - 3 hours
+
+Connect Backend to Frontend - 2 hours
+
+Final CSS - 3 hours
+
+Total: 19 hours and 20 mins
+
 ## 1. Problem Statement
 
 This project is a working tetris game built with React that utililzes SQL to store users and scores.
@@ -43,7 +83,7 @@ This project is a working tetris game built with React that utililzes SQL to sto
 Briefly describe what each user role/authority can do. (These are user stories.)
 
 > - Play a game (anyone).
-> - Remove a score (ADMIN).
+> - ~~Remove a score (ADMIN).~~ now a stretch goal
 > - Browse scores (anyone).
 
 ## 5. User Stories/Scenarios
@@ -53,13 +93,13 @@ Elaborate use stories.
 > ### Play a game
 > 
 > Player plays a game.
-> Possible ways to display a game would be using HTML Canvas.
+> 
 > 
 > **Precondition**: none
 > 
 > **Post-condition**: If the player is a USER, the run is automatically saved.
 > 
-> ### Remove a Run
+> ### Remove a Run, now a stretch goal
 > 
 > Can remove a score.
 > 
