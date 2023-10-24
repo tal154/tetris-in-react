@@ -7,6 +7,28 @@ export const StyledTetrisWrapper = styled.div`
   outline: none;
 `;
 
+export const StyledAbout = styled.div`
+body {
+  font-family: 'Press Start 2P', monospace;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+#content {
+  font-family: 'Press Start 2P', monospace;
+  color: white;
+  border: 4px solid #fff;
+  margin: 20px auto;
+  max-width: 500px;
+  padding: 20px;
+  background-color: #000;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+`
+
 export const StyledScoreboard = styled.div`
 body {
   font-family: 'Press Start 2P', monospace;

@@ -20,6 +20,11 @@ export default function Header() {
                                         Score
                                     </NavLink>
                                 </li>
+                                <li className='nav-item'>
+                                    <NavLink className='nav-link' to='/about'>
+                                        About
+                                    </NavLink>
+                                </li>
                             </ul>
                         </Nav>
                     </Navbar.Collapse>
