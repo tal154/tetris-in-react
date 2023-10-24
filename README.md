@@ -43,7 +43,7 @@ This project is a working tetris game built with React that utililzes SQL to sto
 Briefly describe what each user role/authority can do. (These are user stories.)
 
 > - Play a game (anyone).
-> - Remove a score (ADMIN).
+> - --Remove a score (ADMIN).-- now a stretch goal
 > - Browse scores (anyone).
 
 ## 5. User Stories/Scenarios
@@ -59,7 +59,7 @@ Elaborate use stories.
 > 
 > **Post-condition**: If the player is a USER, the run is automatically saved.
 > 
-> ### Remove a Run
+> ### Remove a Run, now a stretch goal
 > 
 > Can remove a score.
 > 
