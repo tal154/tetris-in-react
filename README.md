@@ -65,7 +65,7 @@ This project is a working Tetris game built with React that utilizes SQL to stor
 > A player can play a game of Tetris and ~~have their score recorded. Each time a new high score is earned, then their current recorded score is replaced.~~
 > 
 > ### Scenario 2
-> An admin will have the authorization to remove scores.
+> ~~An admin will have the authorization to remove scores.~~
 
 ## 3. Glossary
 
@@ -76,7 +76,7 @@ This project is a working Tetris game built with React that utilizes SQL to stor
 > ### User
 > A user has an account that lets them keep track of their score.
 > ### Admin
-> A user with an administrator role. They have more privileged applications, letting them update and delete scores.
+> ~~A user with an administrator role. They have more privileged applications, letting them update and delete scores.~~
 > ### Score
 > A user's stored game score
 
